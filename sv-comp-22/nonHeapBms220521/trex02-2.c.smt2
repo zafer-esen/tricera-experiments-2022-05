@@ -1,0 +1,16 @@
+(set-logic HORN)
+(set-info :source |
+    Benchmark: C_VC
+    Output by Princess (http://www.philipp.ruemmer.org/princess.shtml)
+|)
+(set-info :status unsat)
+(declare-fun inv_main2 (Int) Bool)
+(declare-fun inv_main3 (Int) Bool)
+(declare-fun inv_main5 (Int) Bool)
+(assert (inv_main2 0))
+(assert (forall ((var0 Int)) (or (not (and (inv_main3 var0) (not (<= 0 (+ var0 (- 1)))))) (inv_main5 var0))))
+(assert (forall ((var0 Int) (var1 Int)) (or (not (inv_main2 var1)) (inv_main3 var0))))
+(assert (forall ((var0 Int) (var1 Int)) (or (not (and (inv_main3 var1) (and (not (= var0 0)) (<= 0 (+ var1 (- 1)))))) (inv_main3 (+ var1 (- 1))))))
+(assert (forall ((var0 Int) (var1 Int)) (or (not (and (inv_main3 var1) (and (= var0 0) (<= 0 (+ var1 (- 1)))))) (inv_main3 (+ var1 (- 1))))))
+(assert (forall ((var0 Int)) (not (and (inv_main5 var0) (not (= var0 0))))))
+(check-sat)

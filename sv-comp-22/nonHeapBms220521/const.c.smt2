@@ -1,0 +1,16 @@
+(set-logic HORN)
+(set-info :source |
+    Benchmark: C_VC
+    Output by Princess (http://www.philipp.ruemmer.org/princess.shtml)
+|)
+(set-info :status sat)
+(declare-fun inv_main10 (Int) Bool)
+(declare-fun inv_main3 (Int) Bool)
+(assert (inv_main3 0))
+(assert (forall ((var0 Int)) (or (not (inv_main10 var0)) (inv_main3 var0))))
+(assert (forall ((var0 Int) (var1 Int) (var2 Int)) (or (not (and (inv_main3 var2) (and (and (<= 0 var1) (= var1 0)) (and (not (= var2 0)) (and (<= 0 var0) (not (= var0 0))))))) (inv_main3 (+ var2 1)))))
+(assert (forall ((var0 Int) (var1 Int) (var2 Int)) (or (not (and (inv_main3 var2) (and (and (<= 0 var1) (= var1 0)) (and (= var2 0) (and (<= 0 var0) (not (= var0 0))))))) (inv_main3 var2))))
+(assert (forall ((var0 Int) (var1 Int) (var2 Int)) (or (not (and (inv_main3 var2) (and (and (<= 0 var1) (not (= var1 0))) (and (not (= var2 0)) (and (<= 0 var0) (not (= var0 0))))))) (inv_main10 (+ var2 1)))))
+(assert (forall ((var0 Int) (var1 Int) (var2 Int)) (or (not (and (inv_main3 var2) (and (and (<= 0 var1) (not (= var1 0))) (and (= var2 0) (and (<= 0 var0) (not (= var0 0))))))) (inv_main10 var2))))
+(assert (forall ((var0 Int)) (not (and (inv_main10 var0) (not (= var0 0))))))
+(check-sat)

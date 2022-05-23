@@ -1,0 +1,16 @@
+(set-logic HORN)
+(set-info :source |
+    Benchmark: C_VC
+    Output by Princess (http://www.philipp.ruemmer.org/princess.shtml)
+|)
+(set-info :status sat)
+(declare-fun inv_main13 (Int Int) Bool)
+(declare-fun inv_main4 (Int Int) Bool)
+(declare-fun inv_main9 (Int Int) Bool)
+(assert (inv_main4 6 6))
+(assert (forall ((var0 Int) (var1 Int)) (or (not (and (inv_main9 var1 var0) (and (and (or (not (= (+ var1 1) 6)) (not (= var0 6))) (not (<= 0 (+ (+ 6 (* (- 1) (+ var1 1))) (- 1))))) (not (<= 0 (+ (+ 6 (* (- 1) var0)) (- 1))))))) (inv_main13 (+ var1 1) var0))))
+(assert (forall ((var0 Int) (var1 Int)) (or (not (and (inv_main9 var1 var0) (<= 0 (+ (+ 6 (* (- 1) var0)) (- 1))))) (inv_main9 var1 (+ var0 1)))))
+(assert (forall ((var0 Int) (var1 Int)) (or (not (inv_main4 var1 var0)) (inv_main9 0 0))))
+(assert (forall ((var0 Int) (var1 Int)) (or (not (and (inv_main9 var1 var0) (and (<= 0 (+ (+ 6 (* (- 1) (+ var1 1))) (- 1))) (not (<= 0 (+ (+ 6 (* (- 1) var0)) (- 1))))))) (inv_main9 (+ var1 1) 0))))
+(assert (forall ((var0 Int) (var1 Int)) (not (inv_main13 var1 var0))))
+(check-sat)
